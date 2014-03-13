@@ -10,7 +10,7 @@ class Qwt5 < Formula
   def install
     inreplace 'qwtconfig.pri' do |s|
       # change_make_var won't work because there are leading spaces
-      s.gsub! /^\s*QWT_INSTALL_PREFIX\s*=(.*)$/, "QWT_INSTALL_PREFIX=#{prefix}"
+      s.gsub! /^\s*INSTALLBASE\s*=(.*)$/, "INSTALLBASE=#{prefix}"
     end
 
     args = ['-config', 'release', '-spec']
