@@ -12,14 +12,17 @@ class Qwtplot3d < Formula
   depends_on :x11
   depends_on 'qt'
 
-  def patches
-    "https://gist.githubusercontent.com/sic/9519552/raw/d4ad06dddf7bc3cbd9075c208bb9116ca3b3a2b8/gistfile1.diff"
-  end
+#  def patches
+#    "https://gist.githubusercontent.com/sic/9519552/raw/0b7547cad093c585ade5e9b9f630c805473f1253/gistfile1.diff"
+#  end
+
+patch :DATA
 
   def install
     
     inreplace 'qwtplot3d.pro' do |s|
       s.gsub! /^\s*DESTDIR\s*=(.*)$/, "DESTDIR=#{prefix}"
+      s.gsub! /^\s*INCLUDEPATH\s*=(.*)$/, "INCLUDEPATH = include /opt/X11/include"
     end
 
     # TODO: add INCLUDEPATH += /opt/X11/include to qwtplot3d.pro
@@ -49,7 +52,21 @@ class Qwtplot3d < Formula
     #
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    #system "false"
   end
 end
 
+__END__
+diff --git a/include/qwt3d_openglhelper.h b/include/qwt3d_openglhelper.h
+index 0ee80de..3d02e3f 100644
+--- a/include/qwt3d_openglhelper.h
++++ b/include/qwt3d_openglhelper.h
+@@ -8,6 +8,8 @@
+ #include <QtOpenGL/qgl.h>
+ #endif
+ 
++#include <GL/glu.h>
++
+ namespace Qwt3D
+ {
+ 
