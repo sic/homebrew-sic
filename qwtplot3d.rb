@@ -16,8 +16,6 @@ class Qwtplot3d < Formula
 #    "https://gist.githubusercontent.com/sic/9519552/raw/0b7547cad093c585ade5e9b9f630c805473f1253/gistfile1.diff"
 #  end
 
-patch :DATA
-
   def install
     
     inreplace 'qwtplot3d.pro' do |s|
