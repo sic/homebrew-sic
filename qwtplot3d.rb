@@ -27,6 +27,10 @@ class Qwtplot3d < Formula
 
 
     # TODO: Apply patch
+    def patches
+      # fixes something small
+      DATA
+    end
 
 
     args = ['-config', 'release', '-spec']
