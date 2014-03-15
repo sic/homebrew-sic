@@ -13,7 +13,7 @@ class Qwtplot3d < Formula
   depends_on 'qt'
 
   def patches
-    "https://gist.githubusercontent.com/sic/9519552/raw/d0c64f1ba12aa18e05792120f385f77d76e0fffa/gistfile1.diff"
+    "https://gist.githubusercontent.com/sic/9519552/raw/d4ad06dddf7bc3cbd9075c208bb9116ca3b3a2b8/gistfile1.diff"
   end
 
   def install
@@ -21,6 +21,12 @@ class Qwtplot3d < Formula
     inreplace 'qwtplot3d.pro' do |s|
       s.gsub! /^\s*DESTDIR\s*=(.*)$/, "DESTDIR=#{prefix}"
     end
+
+    # TODO: add INCLUDEPATH += /opt/X11/include to qwtplot3d.pro
+
+
+    # TODO: Apply patch
+
 
     args = ['-config', 'release', '-spec']
     # On Mavericks we want to target libc++, this requires a unsupported/macx-clang-libc++ flag
@@ -47,4 +53,3 @@ class Qwtplot3d < Formula
   end
 end
 
-__END__
