@@ -10,7 +10,7 @@ class mantid-developer < Formula
 	depends_on "boost" => "c++11"
 	depends_on "boost-python" => "c++11"
 	depends_on "gsl"
-	depends_on "hdf5" ==> ["with-cxx", "c++11", "with-fortran", "with-fortran2003", "without-check"]
+	depends_on "hdf5" => ["with-cxx", "c++11", "with-fortran", "with-fortran2003", "without-check"]
 	depends_on "libmxml"
 	depends_on "muparser"
 	depends_on "nexusformat" => "c++11"
