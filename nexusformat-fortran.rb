@@ -19,6 +19,7 @@ conflicts_with "Nexusformat", :because => "they both ship the same libs"
 
   deprecated_option "hdf@4" => "hdf4"
 
+  depends_on "gcc"
   depends_on "cmake" => :build
   depends_on "libmxml"
   cxx11dep = build.cxx11? ? ["c++11"] : []
@@ -30,8 +31,8 @@ conflicts_with "Nexusformat", :because => "they both ship the same libs"
   def install
     ENV.cxx11 if build.cxx11?
     cmake_args = std_cmake_args
-    cmake_args << "-DCMAKE_CXX_COMPILER=#{prefix}/bin/g++-7"
-    cmake_args << "-DCMAKE_C_COMPILER=#{prefix}/bin/gcc-7"
+    cmake_args << "-DCMAKE_CXX_COMPILER=g++-7"
+    cmake_args << "-DCMAKE_C_COMPILER=gcc-7"
     cmake_args << "-DENABLE_APPS=TRUE"
     cmake_args << "-DENABLE_CXX=TRUE"
     cmake_args << "-DENABLE_MXML=TRUE"
