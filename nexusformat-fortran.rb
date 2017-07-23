@@ -31,15 +31,15 @@ conflicts_with "Nexusformat", :because => "they both ship the same libs"
   def install
     ENV.cxx11 if build.cxx11?
     #cmake_args = std_cmake_args
-    cmake_args = ""
-    cmake_args << "-DCMAKE_CXX_COMPILER=g++-7"
-    cmake_args << "-DCMAKE_C_COMPILER=gcc-7"
-    cmake_args << "-DENABLE_APPS=TRUE"
-    cmake_args << "-DENABLE_CXX=TRUE"
-    cmake_args << "-DENABLE_MXML=TRUE"
-    cmake_args << "-DENABLE_FORTRAN77=TRUE"
-    cmake_args << "-DENABLE_FORTRAN90=TRUE"
-    cmake_args << "-DENABLE_HDF4=TRUE" if build.with? "hdf4"
+    cmake_args = " "
+    cmake_args << "-DCMAKE_CXX_COMPILER=g++-7 "
+    cmake_args << "-DCMAKE_C_COMPILER=gcc-7 "
+    cmake_args << "-DENABLE_APPS=TRUE "
+    cmake_args << "-DENABLE_CXX=TRUE "
+    cmake_args << "-DENABLE_MXML=TRUE "
+    cmake_args << "-DENABLE_FORTRAN77=TRUE "
+    cmake_args << "-DENABLE_FORTRAN90=TRUE "
+    cmake_args << "-DENABLE_HDF4=TRUE " if build.with? "hdf4"
     system "cmake", ".", *cmake_args
     system "make"
     # enable once test failures are resolved upstream
