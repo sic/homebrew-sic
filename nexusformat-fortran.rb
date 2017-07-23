@@ -30,7 +30,8 @@ conflicts_with "Nexusformat", :because => "they both ship the same libs"
 
   def install
     ENV.cxx11 if build.cxx11?
-    cmake_args = std_cmake_args
+    #cmake_args = std_cmake_args
+    cmake_args = ""
     cmake_args << "-DCMAKE_CXX_COMPILER=g++-7"
     cmake_args << "-DCMAKE_C_COMPILER=gcc-7"
     cmake_args << "-DENABLE_APPS=TRUE"
