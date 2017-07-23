@@ -1,4 +1,4 @@
-class Nexusformat-fortran < Formula
+class NexusformatFortran < Formula
   desc "Common data format for neutron, x-ray, and muon science"
   homepage "http://www.nexusformat.org"
   url "https://github.com/nexusformat/code/archive/v4.4.3.tar.gz"
